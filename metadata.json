@@ -1,0 +1,6 @@
+{
+  "name": "SplitSmart Receipt Splitter",
+  "description": "Split-screen receipt bill splitting with AI image parsing, natural language chat assignment, and real-time proportional tax and tip distribution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
