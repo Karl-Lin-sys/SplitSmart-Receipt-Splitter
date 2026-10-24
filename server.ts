@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
@@ -27,6 +28,7 @@ function getGenAI(): GoogleGenAI {
 
 async function startServer() {
   const app = express();
+app.use('/api', localApiOnly(() => PORT));
 
   // Increase payload limit for base64 receipt photos
   app.use(express.json({ limit: "25mb" }));
@@ -320,7 +322,7 @@ Always return JSON matching the specified schema.`;
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  app.listen(PORT, "127.0.0.1", () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
 }
